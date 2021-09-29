@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+
+  <ion-content>
+    <div id="container">
+      <ion-item>
+        <ion-label>Usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.login"  ></ion-input> 
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="usuario.password"  ></ion-input> 
+      </ion-item>
+    
+      <ion-button color="primary" (click)="btninisesion()" >Iniciar sesion</ion-button>
+      
+      <ion-button color="primary"(click)="btnpassword()" >Recuperar Contraseña</ion-button>
+      <ion-datetime value="2022-10-28T15:43:40.394Z" display-timezone="utc"></ion-datetime>
+  
+    </div>
+  </ion-content>
+
+ 
