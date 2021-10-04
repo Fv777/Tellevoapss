@@ -1,29 +1,60 @@
 <ion-header>
+  <ion-card>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Ingresa</ion-title>
   </ion-toolbar>
+</ion-card>
 </ion-header>
 <ion-content>
   
 
-  <ion-content>
+  <ion-content  >
     <div id="container">
+    <ion-card>
       <ion-item>
-        <ion-label>Usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="usuario.login"  ></ion-input> 
+        <ion-label position="floating">usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.Usuario"  ></ion-input> 
       </ion-item>
   
       <ion-item>
-        <ion-label>Password</ion-label>
-        <ion-input type="password" [(ngModel)]="usuario.password"  ></ion-input> 
+        <ion-label position="floating" >password</ion-label>
+        <ion-input type="password" [(ngModel)]="usuario.Password"></ion-input> 
       </ion-item>
     
-      <ion-button color="primary" (click)="btninisesion()" >Iniciar sesion</ion-button>
+      <ion-button color="primary" position="floating" (click)="btninisesion()" >Iniciar sesion</ion-button>
       
-      <ion-button color="primary"(click)="btnpassword()" >Recuperar Contraseña</ion-button>
-      <ion-datetime value="2022-10-28T15:43:40.394Z" display-timezone="utc"></ion-datetime>
-  
+      <ion-button color="primary"  (click)="btnpassword()" >Recuperar Contraseña</ion-button>
+      <ion-datetime value="2022-10-29T15:43:40.394Z" display-timezone="utc"></ion-datetime>
+    </ion-card>
     </div>
+    <ion-card>
+      <ion-card-header>
+        
+        <ion-card-title>Anti-espias <ion-icon name="shield-half-outline"></ion-icon> </ion-card-title> 
+      </ion-card-header>
+    
+      <ion-card-content>
+        Todos tus datos protegidos por Valvecheat <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+      </ion-card-content>
+    </ion-card>
+
+
+      
+        
+          <ion-button color="primary" (click)="btnvolver()" >Volver </ion-button>
+          
+  
+      
+    
+
+    
+    
+    
+    
+  
+
   </ion-content>
 
+
+  
  

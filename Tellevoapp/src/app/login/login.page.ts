@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router} from '@angular/router'; 
+import {MatCardModule} from '@angular/material/card';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -8,27 +10,81 @@ import {Router} from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  usuario:any={
-    usuario: "",
-    password: ""
+  usuario:any={  //variable
+    Usuario: "",
+    Password: ""
   } 
 
-  constructor(private router: Router) { }
+  campoError:string = "";
+
+  constructor(private router: Router ,
+    public toastController: ToastController) { }
+  
 
   ngOnInit() {
   }
 
-  btninisesion() 
-  {
-    console.log("autentificacion correcta " + this.usuario.login + " " + this.usuario.password);
-    this.router.navigate(['/home'])
+  btninisesion()   //boton de inicio 
+    {
+      if(this.validarModelo(this.usuario))
+      {
+        this.mensajeToast("Acceso correcto")
+        this.router.navigate(['/home']) //entrar a la pagina 
+       
+      }
+      else{
+        this.mensajeToast("Ingresar tu "+this.campoError)
+      }
+    
     
   }
+ 
+
+ 
   btnpassword()
   {
     console.log;
     this.router.navigate(['/recovery-password'])
 
   }
+  btnvolver() 
+  {
+    console.log;
+    this.router.navigate(['/inicio'])
+  }
+  
 
+  validarModelo(model:any)
+  {
+    for(var [key, value] of Object.entries(model))
+    {
+      console.log(key+" value: "+value);
+      if(value== "")
+      {
+        this.campoError = key;
+        return false;
+
+      }
+
+    }
+    return true;
+    
+
+  }
+
+  async mensajeToast(message:string, duration?:number)
+  {
+   const toast = await this.toastController.create(
+
+    {
+      message: message,
+      duration: duration?duration:3000
+
+    }
+   );
+
+   toast.present();
+  
+    
+  }  
 }
