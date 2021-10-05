@@ -28,8 +28,9 @@ export class LoginPage implements OnInit {
     {
       if(this.validarModelo(this.usuario))
       {
-        this.mensajeToast("Acceso correcto")
+        this.mensajeToast("Bienvenido " +this.usuario.Usuario)
         this.router.navigate(['/home']) //entrar a la pagina 
+        
        
       }
       else{
