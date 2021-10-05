@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'; 
 import {MatCardModule} from '@angular/material/card';
 import { ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +18,9 @@ export class LoginPage implements OnInit {
 
   campoError:string = "";
 
-  constructor(private router: Router ,
-    public toastController: ToastController) { }
+  constructor(private router: Router ,public toastController: ToastController ,public alertController: AlertController) {
+
+   }
   
 
   ngOnInit() {
@@ -48,11 +50,9 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/recovery-password'])
 
   }
-  btnvolver() 
-  {
-    console.log;
-    this.router.navigate(['/inicio'])
-  }
+
+
+  
   
 
   validarModelo(model:any)
@@ -76,6 +76,7 @@ export class LoginPage implements OnInit {
   async mensajeToast(message:string, duration?:number)
   {
    const toast = await this.toastController.create(
+     
 
     {
       message: message,
@@ -84,8 +85,60 @@ export class LoginPage implements OnInit {
     }
    );
 
-   toast.present();
+   toast.present()
+   }  
+
   
+  
+
+  async alertaBasica() {
+    const mialerta = await this.alertController.create({
+      header: 'Deseas volver atras?', buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('usuario se mantiene en el login');
+          }
+        }, {
+          text: 'Confirmar',
+          handler: () => {
+            console.log('usuario a confirmado volver al inicio'),this.router.navigate(['/inicio']);
+          }
+        }
+      ]
+    });
     
-  }  
+    await mialerta.present();
+
+    
+  };
+
+  async mensaje() {
+    const mialerta = await this.alertController.create({
+      header: 'bienvenido', buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('usuario se mantiene en el login');
+          }
+        }, {
+          text: 'Confirmar',
+          handler: () => {
+            console.log('usuario a confirmado volver al inicio'),this.router.navigate(['/inicio']);
+          }
+        }
+      ]
+    });
+    
+    await mialerta.present();
+
+    
+  };
 }
+
+
+
