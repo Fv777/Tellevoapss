@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import {Storage} from '@capacitor/storage';
 
 @Component({
   selector: 'app-login',
@@ -21,36 +22,55 @@ export class LoginPage implements OnInit {
   constructor(private router: Router ,public toastController: ToastController ,public alertController: AlertController) {
 
    }
-  
 
   ngOnInit() {
   }
 
-  btninisesion()   //boton de inicio 
+  btninisesion()   //boton de iniciar sesion
+    
     {
+
       if(this.validarModelo(this.usuario))
       {
         this.mensajeToast("Bienvenido " +this.usuario.Usuario)
         this.router.navigate(['/home']) //entrar a la pagina 
         
-       
       }
       else{
         this.mensajeToast("Ingresar tu "+this.campoError)
       }
-    
-    
-  }
- 
 
+      var infoJson = JSON.stringify(this.usuario);
+
+      Storage.set({key: 'usuario', value: infoJson});
+      Storage.set({key: 'logeado', value: 'ok'});
+      
+    
+    }
  
-  btnpassword()
+  btnpassword() //boton recuperar contraseña
   {
     console.log;
     this.router.navigate(['/recovery-password'])
 
   }
 
+
+  guardarDatosStorage(){
+    var miJson = JSON.stringify(this.usuario);
+    Storage.set({key: 'usuario', value: miJson});
+    console.log("se guadaron los datos del usuario");
+  }
+
+  verDatosStorage()
+  {
+
+    Storage.get({key: 'usuario'}).then((val) =>{
+      var objeto = JSON.parse(val.value);
+      console.log(objeto);
+    });
+
+  }
 
   
   

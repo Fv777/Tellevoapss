@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RutaProtegidaGuard } from './ruta-protegida.guard';
+
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [RutaProtegidaGuard]
+    
   },
   {
     path: '',
@@ -13,15 +17,18 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    
   },
   {
     path: 'password',
-    loadChildren: () => import('./password/password.module').then( m => m.PasswordPageModule)
+    loadChildren: () => import('./password/password.module').then( m => m.PasswordPageModule),
+    
   },
   {
     path: 'recovery-password',
-    loadChildren: () => import('./recovery-password/recovery-password.module').then( m => m.RecoveryPasswordPageModule)
+    loadChildren: () => import('./recovery-password/recovery-password.module').then( m => m.RecoveryPasswordPageModule),
+    
   },
   {
     path: 'inicio',
@@ -29,7 +36,8 @@ const routes: Routes = [
   },
   {
     path: 'crearcuenta',
-    loadChildren: () => import('./crearcuenta/crearcuenta.module').then( m => m.CrearcuentaPageModule)
+    loadChildren: () => import('./crearcuenta/crearcuenta.module').then( m => m.CrearcuentaPageModule),
+    
   },
 ];
 

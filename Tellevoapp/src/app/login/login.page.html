@@ -8,22 +8,22 @@
 <ion-content>
   
 
-  <ion-content  >
+  <ion-content   >
     <div id="container">
     <ion-card>
       <ion-item>
-        <ion-label position="floating">usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="usuario.Usuario"  ></ion-input> 
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="text" placeholder="Ingresa tu Usuario" [(ngModel)]="usuario.Usuario"  ></ion-input> 
       </ion-item>
   
       <ion-item>
-        <ion-label position="floating" >password</ion-label>
-        <ion-input type="password" [(ngModel)]="usuario.Password"></ion-input> 
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" placeholder="Ingresa tu Password" [(ngModel)]="usuario.Password"></ion-input> 
       </ion-item>
     
-      <ion-button color="primary" position="floating" (click)="btninisesion()" >Iniciar sesion</ion-button>
+      <ion-button color="primary" position="floating" expand="full" (click)="btninisesion()" >Iniciar sesion</ion-button>
       
-      <ion-button color="primary"  (click)="btnpassword()" >Recuperar Contraseña</ion-button>
+      <ion-button color="primary" expand="full"  (click)="btnpassword()" >Recuperar Contraseña</ion-button>
       <ion-datetime value="2022-10-29T15:43:40.394Z" display-timezone="utc"></ion-datetime>
     </ion-card>
     </div>
@@ -32,13 +32,16 @@
         
         <ion-card-title>Anti-espias <ion-icon name="shield-half-outline"></ion-icon> </ion-card-title> 
       </ion-card-header>
+
+      
     
       <ion-card-content>
         Todos tus datos protegidos por Valvecheat <ion-icon name="checkmark-done-circle-outline"></ion-icon>
         
       </ion-card-content>
     </ion-card>
-
+    <ion-button expand="full" (click)="guardarDatosStorage()" > Guardar datos en el storage</ion-button>
+    <ion-button expand="full" (click)="verDatosStorage()" > Ver datos en el storage</ion-button>
           
 
           
