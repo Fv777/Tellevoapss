@@ -1,7 +1,8 @@
 import { Component , OnInit} from '@angular/core';
-import {Storage} from '@capacitor/storage';
-import {Router} from '@angular/router';
+import { Storage } from '@capacitor/storage';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ApiTestService } from '../servicios/api.service';
 
 
 @Component({
@@ -11,7 +12,9 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  constructor(private router: Router,public alertController: AlertController) { }
+  constructor(private router: Router,public alertController: AlertController, private apiTest: ApiTestService ) { }
+
+
 
   ngOnInit() {
   }
