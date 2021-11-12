@@ -18,17 +18,28 @@ export class ApiTestService{
 
 
 getUsuarios(): Observable<any>
-{
-    
+{  
   return this.http.get(this.apiBase+"usuarios/1000300170").pipe();
 
 }
 
-crearUsuario(nombre ,apellidoPaterno ,apellidoMaterno , correo ,password , token_equipo)
+crearUsuario(datos)
 {
-  return this.http.post(this.apiBase, {crearUsuario: 'UsuarioAlmacenar',
-                                          parametros: [nombre ,apellidoPaterno ,apellidoMaterno , correo, password , token_equipo] } ,).pipe();
+  return this.http.post(this.apiBase+ 'crearUsuario',datos).pipe();
 
 }
+
+loginUsuario(datos)
+{
+  return this.http.post(this.apiBase+ 'loginUsuario',datos).pipe();
+
+}
+  
+modificarPassword(datos)
+{
+  return this.http.post(this.apiBase+ 'modificarPassword',datos).pipe();
+
+}
+  
 
 }  

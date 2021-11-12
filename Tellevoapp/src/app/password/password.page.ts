@@ -22,12 +22,27 @@ export class PasswordPage implements OnInit {
     })
   }  
 
-
   crearMiUsuario()
-  {
-    this.apiTest.crearUsuario("fabian", "villalobos", "medina", "test@profesor.duoc.cl", "1234", "1000300170").subscribe((res)=>{
+  { 
+    this.apiTest.crearUsuario({"nombre":"probando","apellidos":"probando","correo":"probandogmail.com","password":"123","token_equipo":"1000300170" }).subscribe((res)=>{
       console.log(res);
     })
   }
+  
+
+  loginUsuario()
+  {
+    this.apiTest.loginUsuario({"nombre":"probando","correo":"probandogmail.com","password":"123","token_equipo":"11000300170"}).subscribe((res)=>{
+      console.log(res);
+    })
+  }
+
+  modificarPassword()
+  {
+    this.apiTest.modificarPassword({"correo":"probandogmail.com","password":"123","token_equipo":"1000300170"}).subscribe((res)=>{
+      console.log(res);
+    })
+  }
+  
 
 }
