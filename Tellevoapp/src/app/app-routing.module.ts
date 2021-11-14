@@ -39,6 +39,10 @@ const routes: Routes = [
     loadChildren: () => import('./crearcuenta/crearcuenta.module').then( m => m.CrearcuentaPageModule),
     
   },
+  {
+    path: 'modpw',
+    loadChildren: () => import('./modpw/modpw.module').then( m => m.ModpwPageModule)
+  },
 ];
 
 @NgModule({

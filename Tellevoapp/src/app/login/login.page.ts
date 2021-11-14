@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'; 
-import {MatCardModule} from '@angular/material/card';
+import {Router, NavigationExtras} from '@angular/router'; 
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import {Storage} from '@capacitor/storage';
+import { ApiTestService } from '../servicios/api.service';
 
 @Component({
   selector: 'app-login',
@@ -14,21 +14,27 @@ export class LoginPage implements OnInit {
 
   usuario:any={  //variable
     Usuario: "",
-    Password: ""
+    Password: "",
+      
   } 
+  
 
   campoError:string = "";
 
-  constructor(private router: Router ,public toastController: ToastController ,public alertController: AlertController) {
+  constructor(private router: Router ,public toastController: ToastController ,public alertController: AlertController, private apiTest: ApiTestService) {
 
    }
 
   ngOnInit() {
   }
 
+  
+
+
   btninisesion()   //boton de iniciar sesion
     
     {
+      
 
       if(this.validarModelo(this.usuario))
       {
@@ -51,7 +57,7 @@ export class LoginPage implements OnInit {
   btnpassword() //boton recuperar contraseña
   {
     console.log;
-    this.router.navigate(['/recovery-password'])
+    this.router.navigate(['/modpw'])
 
   }
 

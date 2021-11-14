@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ApiTestService } from '../servicios/api.service';
+
 
 @Component({
   selector: 'app-crearcuenta',
@@ -9,15 +11,36 @@ import { AlertController } from '@ionic/angular';
 })
 export class CrearcuentaPage implements OnInit {
 
-  constructor(private router: Router,public alertController: AlertController) { }
+  newusuario:any={
+
+    nombre: "",
+    apellidos: "",
+    correo: "",
+    password: "",
+    token: "1000300170",
+
+  }
+
+  
+
+  constructor(private router: Router,public alertController: AlertController,private apiTest: ApiTestService) { }
+
+  
 
   ngOnInit() {
   }
+
+
   btncrear() 
   {
-    console.log("autentificacion correcta ");
-    this.router.navigate(['/home'])
+    
+    this.apiTest.crearUsuario({"nombre":this.newusuario.nombre,"apellidos":this.newusuario.apellidos,
+    "correo":this.newusuario.correo,"password":this.newusuario.password,"token_equipo":this.newusuario.token}).subscribe((resultado)=>{
+      console.log(resultado)
+    })
+
   }
+
   btnvolver() 
   {
     console.log;

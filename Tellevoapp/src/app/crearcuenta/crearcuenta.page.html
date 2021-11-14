@@ -10,59 +10,36 @@
 <ion-content>
   <ion-card>
     <ion-item>
-      <ion-label>Usuario</ion-label>
-      <ion-input type="text"></ion-input> 
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" placeholder="Ingresa tu nombre" [(ngModel)]="newusuario.nombre" > </ion-input> 
     </ion-item>
   </ion-card>
 
   <ion-card>
   <ion-item>
-    <ion-label>Nombre</ion-label>
-    <ion-input type="text"></ion-input> 
+    <ion-label position="floating">Apellidos</ion-label>
+    <ion-input type="text" placeholder="Ingresa tus apellidos" [(ngModel)]="newusuario.apellidos"></ion-input> 
   </ion-item>
 </ion-card>
  
 <ion-card>
   <ion-item>
-    <ion-label>Apellido</ion-label>
-    <ion-input type="text"></ion-input> 
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input type="text" placeholder="Ingresa tu correo" [(ngModel)]="newusuario.correo"></ion-input> 
   </ion-item>
 </ion-card>
   
 <ion-card>
   <ion-item>
-    <ion-label>Fecha nacimiento</ion-label>
-    <ion-input type="text"></ion-input> 
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" placeholder="Ingresa tu password" [(ngModel)]="newusuario.password" ></ion-input> 
   </ion-item>
 </ion-card>
 
-<ion-card>
-  <ion-item>
-    <ion-label>E-mail</ion-label>
-    <ion-input type="text"></ion-input> 
-  </ion-item>
-</ion-card>
 
-<ion-card>
-  <ion-item>
-    <ion-label>Telefono</ion-label>
-    <ion-input type="text"></ion-input> 
-  </ion-item>
-</ion-card>  
-
-
-
-<ion-card>
-  <ion-item>
-    <ion-label>Carrera universitaria</ion-label>
-    <ion-input type="text"></ion-input> 
-  </ion-item>
-</ion-card>
-
- 
   
 <ion-card>
 
-<ion-button color="primary" (click)="btncrear()" >Crear tu cuenta </ion-button>
+<ion-button color="primary" (click)="btncrear()" >Crear usuario </ion-button>
 
 </ion-card>

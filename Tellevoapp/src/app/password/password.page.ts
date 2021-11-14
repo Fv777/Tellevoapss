@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiTestService } from '../servicios/api.service';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-password',
@@ -8,7 +9,18 @@ import { ApiTestService } from '../servicios/api.service';
 })
 export class PasswordPage implements OnInit {
 
-  constructor(private apiTest: ApiTestService) { }
+
+  loginusuario:any={
+
+    correo: "",
+    password: "",
+    token:"1000300170",
+  }
+
+
+  
+
+  constructor(private router : Router, private apiTest: ApiTestService) { }
 
   ngOnInit() {
   }
@@ -22,27 +34,19 @@ export class PasswordPage implements OnInit {
     })
   }  
 
-  crearMiUsuario()
-  { 
-    this.apiTest.crearUsuario({"nombre":"probando","apellidos":"probando","correo":"probandogmail.com","password":"123","token_equipo":"1000300170" }).subscribe((res)=>{
-      console.log(res);
-    })
-  }
-  
-
   loginUsuario()
   {
-    this.apiTest.loginUsuario({"nombre":"probando","correo":"probandogmail.com","password":"123","token_equipo":"11000300170"}).subscribe((res)=>{
-      console.log(res);
+    console.log( this.loginusuario.correo + " " + this.loginusuario.password + " " + this.loginusuario.token);
+    this.apiTest.loginUsuario({"correo":this.loginusuario.correo,"password":this.loginusuario.password,"token_equipo":this.loginusuario.token}).subscribe((resultado)=>{
+      console.log(resultado);
     })
   }
 
-  modificarPassword()
-  {
-    this.apiTest.modificarPassword({"correo":"probandogmail.com","password":"123","token_equipo":"1000300170"}).subscribe((res)=>{
-      console.log(res);
-    })
-  }
+ 
+
+  
+
+
   
 
 }
