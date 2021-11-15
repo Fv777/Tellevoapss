@@ -28,12 +28,26 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  
+  loginusuario:any={ //modelo
+
+    correo: "",
+    password: "",
+    token:"1000300170",
+  }
+
+  loginUsuario()
+  {
+    console.log( this.loginusuario.correo + " " + this.loginusuario.password + " " + this.loginusuario.token);
+    this.apiTest.loginUsuario({"correo":this.loginusuario.correo,"password":this.loginusuario.password,"token_equipo":this.loginusuario.token}).subscribe((resultado)=>{
+      console.log(resultado);
+    })
+  }
 
 
   btninisesion()   //boton de iniciar sesion
     
     {
+      
       
 
       if(this.validarModelo(this.usuario))
@@ -60,7 +74,12 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/modpw'])
 
   }
+  
+  token(){
 
+    var miJson = JSON.stringify(this.loginusuario);
+    Storage.set({key: 'usuario', value: miJson});
+  }
 
   guardarDatosStorage(){
     var miJson = JSON.stringify(this.usuario);

@@ -9,10 +9,10 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class ModpwPage implements OnInit {
   
-  modificarpassword:any={
+  modificar:any={
 
     correo: "",
-    password: "",
+    nueva_password: "",
     token:"1000300170",
   }
 
@@ -22,9 +22,10 @@ export class ModpwPage implements OnInit {
   }  
 
 
-  modificarPassword()
+  cambiarpassword()
   {
-    this.apiTest.modificarPassword({"correo":this.modificarpassword.correo,"password":this.modificarpassword.password,"token_equipo":this.modificarpassword.token}).subscribe((resultado)=>{
+    this.apiTest.modificarPassword({"correo":this.modificar.correo,
+    "nueva_password":this.modificar.nueva_password,"token_equipo":this.modificar.token}).subscribe((resultado)=>{
       console.log(resultado)
     })
   }  

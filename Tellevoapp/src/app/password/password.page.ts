@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiTestService } from '../servicios/api.service';
 import { Router, NavigationExtras } from '@angular/router';
-
+import {Storage} from '@capacitor/storage';
 @Component({
   selector: 'app-password',
   templateUrl: './password.page.html',
@@ -10,7 +10,7 @@ import { Router, NavigationExtras } from '@angular/router';
 export class PasswordPage implements OnInit {
 
 
-  loginusuario:any={
+  loginusuario:any={ //modelo
 
     correo: "",
     password: "",
@@ -42,7 +42,11 @@ export class PasswordPage implements OnInit {
     })
   }
 
- 
+  guardarDatosstorage(){
+    var miJson = JSON.stringify(this.loginusuario);
+    Storage.set({key: 'usuario', value: miJson});
+    
+  }
 
   
 

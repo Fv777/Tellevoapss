@@ -10,18 +10,18 @@
   <ion-card>
     <ion-item>
       <ion-label position="floating">Correo</ion-label>
-      <ion-input type="text" placeholder="Ingresa correo" [(ngModel)]="modificarpassword.correo" ></ion-input> 
+      <ion-input type="text" placeholder="Ingresa correo" [(ngModel)]="modificar.correo" ></ion-input> 
     </ion-item>
   </ion-card>
 
   <ion-card>
     <ion-item>
       <ion-label position="floating">Nueva Password</ion-label>
-      <ion-input type="text" placeholder="Ingresa tu password" [(ngModel)]="modificarpassword.password" ></ion-input> 
+      <ion-input type="password" placeholder="Ingresa tu nueva password" [(ngModel)]="modificar.nueva_password" ></ion-input> 
     </ion-item>
   </ion-card>
   
-  <ion-button expand="full" (click)="modificarPassword()">
+  <ion-button expand="full" (click)="cambiarpassword()">
     Modificar usuario 
   </ion-button> 
 </ion-content>    
