@@ -14,14 +14,20 @@
 }
 
 #container p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 22px;
 
-  color: #8c8c8c;
+  color: #00ff4c;
 
-  margin: 0;
+  margin: 1;
 }
 
 #container a {
   text-decoration: none;
 }
+
+ion-content{
+  --background: url(mercedez.jpg);
+  --background-repeat: no-repeat;
+  --background-size: cover;  
+  }

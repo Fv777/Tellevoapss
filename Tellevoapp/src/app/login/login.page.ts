@@ -40,6 +40,11 @@ export class LoginPage implements OnInit {
     console.log( this.loginusuario.correo + " " + this.loginusuario.password + " " + this.loginusuario.token);
     this.apiTest.loginUsuario({"correo":this.loginusuario.correo,"password":this.loginusuario.password,"token_equipo":this.loginusuario.token}).subscribe((resultado)=>{
       console.log(resultado);
+      var result = JSON.stringify(resultado);
+        var respuesta = JSON.parse(result);
+        console.log(respuesta.result);
+        console.log(respuesta.result[0]);
+        Storage.set({ key: 'datos', value: JSON.stringify(respuesta.result[0]) })
     })
   }
 
@@ -52,8 +57,11 @@ export class LoginPage implements OnInit {
 
       if(this.validarModelo(this.usuario))
       {
+
+        
         this.mensajeToast("Bienvenido " +this.usuario.Usuario)
         this.router.navigate(['/home']) //entrar a la pagina 
+        
         
       }
       else{
@@ -64,6 +72,8 @@ export class LoginPage implements OnInit {
 
       Storage.set({key: 'usuario', value: infoJson});
       Storage.set({key: 'logeado', value: 'ok'});
+      
+
       
     
     }

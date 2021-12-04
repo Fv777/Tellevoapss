@@ -18,6 +18,18 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
   }
+
+  btnpasajero() {
+    console.log("autentificacion correcta ");
+    this.router.navigate(['/pasajero'])
+
+  }
+
+  btnchofer() {
+    console.log("autentificacion correcta ");
+    this.router.navigate(['/chofer'])
+
+  }
   
   btnvolver() 
   {
@@ -49,4 +61,6 @@ export class HomePage implements OnInit {
 
     
   };
+
+  
 }

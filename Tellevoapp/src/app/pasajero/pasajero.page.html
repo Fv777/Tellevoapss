@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><ion-icon name="arrow-undo-outline" (click)="alertaBasica()"></ion-icon> Elije tu viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  
+      <ion-list>
+        <ion-card-header><h4> Viajes disponibles</h4>  </ion-card-header>
+        <ion-list>
+          <ion-card *ngFor="let item of viajes">
+            <div id="container">
+            
+            </div>
+            <div flex-direction="row">
+              <h3>Valor por persona: {{item.costo_por_persona}}</h3>
+              <h3>Horario de salida: {{item.horario_salida}}</h3>
+              <h3>Lugar de destino: {{item.lugar_destino}}</h3>
+              <ion-button (click)="ReservarViajes()">Seleccionar Viaje </ion-button>
+            </div>
+          </ion-card>
+        </ion-list></ion-list>
+  
+</ion-content>

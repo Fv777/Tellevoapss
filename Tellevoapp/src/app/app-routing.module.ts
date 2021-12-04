@@ -43,6 +43,14 @@ const routes: Routes = [
     path: 'modpw',
     loadChildren: () => import('./modpw/modpw.module').then( m => m.ModpwPageModule)
   },
+  {
+    path: 'pasajero',
+    loadChildren: () => import('./pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+  },
+  {
+    path: 'chofer',
+    loadChildren: () => import('./chofer/chofer.module').then( m => m.ChoferPageModule)
+  },
 ];
 
 @NgModule({
